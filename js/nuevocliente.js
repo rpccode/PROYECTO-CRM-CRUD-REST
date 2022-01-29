@@ -1,3 +1,5 @@
+import  { mostrarAlerta } from './funciones.js'
+
 (function ()  {
   const formulario =  document.querySelector('#formulario');
   formulario.addEventListener('submit', validarCliente);
@@ -18,11 +20,12 @@
                 empresa
           };
 
-        if (validar(Cliente)) {
-          console.log('Paso la Validacion');
-        }else {
-          console.log('no paso la validacion');
+        if (!validar(Cliente)) {
+          mostrarAlerta('no paso la validacion');
+          return;
         }
+
+        
 
   }
   function validar(obj){
