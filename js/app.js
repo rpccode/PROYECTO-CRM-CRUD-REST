@@ -1,4 +1,8 @@
-  import {obtenerClientes} from './API.js'
+  import {obtenerClientes, eliminarCliente } from './API.js'
+
+
+
+
 
 (function(){
 
@@ -7,7 +11,7 @@
 
     document.addEventListener('DOMContentLoaded',mostrarClientes);
 
-
+    listado.addEventListener('click',confirmarEliminar);
 
 
   async  function mostrarClientes(){
@@ -37,7 +41,52 @@
             listado.appendChild(row);
         });
 
+    };
+
+
+    function confirmarEliminar(e){
+        if (e.target.classList.contains('eliminar')) {
+
+            const clienteId=parseInt(e.target.dataset.cliente);
+            const swalWithBootstrapButtons = Swal.mixin({
+                              customClass: {
+                                confirmButton: 'btn btn-success',
+                                cancelButton: 'btn btn-danger'
+                              },
+                              buttonsStyling: false
+                            })
+
+                            swalWithBootstrapButtons.fire({
+                              title: 'Are you sure?',
+                              text: "You won't be able to revert this!",
+                              icon: 'warning',
+                              showCancelButton: true,
+                              confirmButtonText: 'Yes, delete it!',
+                              cancelButtonText: 'No, cancel!',
+                              reverseButtons: true
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                swalWithBootstrapButtons.fire(
+                                  'Deleted!',
+                                  'Your file has been deleted.',
+                                  'success'
+                                )
+                                eliminarCliente(clienteId);
+                              } else if (
+                                /* Read more about handling dismissals below */
+                                result.dismiss === Swal.DismissReason.cancel
+                              ) {
+                                swalWithBootstrapButtons.fire(
+                                  'Cancelled',
+                                  'Your imaginary file is safe :)',
+                                  'error'
+                                )
+                              }
+                            })
+
+        }
     }
+
 
 
 
