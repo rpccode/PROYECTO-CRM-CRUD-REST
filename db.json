@@ -6,6 +6,20 @@
       "telefono": "12",
       "empresa": "12212",
       "id": 26
+    },
+    {
+      "nombre": "Rudy",
+      "email": "turvo200@gmail.com",
+      "telefono": "8299785120",
+      "empresa": "el Tesoro",
+      "id": 27
+    },
+    {
+      "nombre": "Rudy Alexander",
+      "email": "rapccode@gmail.com",
+      "telefono": "8299785120",
+      "empresa": "el Tesoro",
+      "id": 28
     }
   ]
 }
