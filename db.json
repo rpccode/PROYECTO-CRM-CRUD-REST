@@ -1,3 +1,11 @@
 {
-  "clientes": []
+  "clientes": [
+    {
+      "nombre": "Rudy",
+      "email": "turvo200@gmail.com",
+      "telefono": "8299785120",
+      "empresa": "el Tesoro1",
+      "id": 1
+    }
+  ]
 }
