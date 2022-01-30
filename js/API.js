@@ -1,6 +1,8 @@
 
 const url = 'http://localhost:4000/clientes';
 
+
+//cuando creamos un nuevo cliente
 export const nuevoCliente = async cliente => {
 
       try {
@@ -14,9 +16,18 @@ export const nuevoCliente = async cliente => {
          window.location.href = 'index.html';
       } catch (e) {
           console.log(e);
-      } finally {
-
       }
 
-      
+
+}
+
+//obtener todos los clinetes
+export const obtenerClientes = async () =>{
+  try {
+    const resultado = await fetch(url);
+    const clientes = await resultado.json();
+    return clientes;
+  } catch (e) {
+      console.log(e);
+  }
 }
